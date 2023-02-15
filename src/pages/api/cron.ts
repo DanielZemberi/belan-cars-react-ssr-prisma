@@ -24,9 +24,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     if (removedProducts.length > 0) {
       for (const removedProduct of removedProducts) {
-        await prisma.car.delete({
+        await prisma.car.deleteMany({
           where: {
-            // @ts-expect-error fix correct type
             detailUrl: removedProduct.detailUrl,
           },
         });
