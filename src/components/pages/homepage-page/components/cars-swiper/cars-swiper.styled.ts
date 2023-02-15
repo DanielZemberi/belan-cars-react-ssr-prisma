@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const CarsSwiperSC = styled.div`
   a {
-    background: red;
     cursor: pointer;
   }
   .swiper {

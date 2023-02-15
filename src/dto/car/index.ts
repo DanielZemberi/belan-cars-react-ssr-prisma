@@ -16,5 +16,6 @@ export interface IGetCarDetailResponse {
   result: {
     images: string[];
     description: string[];
+    title: string;
   };
 }

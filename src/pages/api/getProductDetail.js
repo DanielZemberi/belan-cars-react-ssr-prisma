@@ -33,11 +33,10 @@ const getProductDetail = async (req, res) => {
   }
 
   const { url } = body;
-  console.log('body', body);
 
   const imagesSelector = '.fliobal .flinavigace .obrazekflithumb';
   const descriptionSelector = '.maincontent .popisdetail';
-  console.log('url', url);
+  const titleSelector = '.maincontent .listainzerat .nadpisdetail';
   try {
     const options = await getOptions();
     const browser = await puppeteer.launch(options);
@@ -68,6 +67,10 @@ const getProductDetail = async (req, res) => {
 
     $(imagesSelector).each((i, elem) => {
       result.images.push($(elem).attr('src'));
+    });
+
+    $(titleSelector).each((i, elem) => {
+      result.title = $(elem).text();
     });
 
     $(descriptionSelector).each((i, elem) => {

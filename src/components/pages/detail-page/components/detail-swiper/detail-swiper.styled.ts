@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
 export const DetailSwiperSC = styled.div`
+  max-width: 100%;
+
+  .swiper-container {
+    max-width: 100%;
+  }
   .swiper {
     width: 100%;
     height: 100%;
@@ -33,7 +38,7 @@ export const DetailSwiperSC = styled.div`
   }
 
   .small-slide {
-    max-width: 300px;
+    max-width: 150px;
     aspect-ratio: 1;
     height: auto;
     justify-content: flex-start;

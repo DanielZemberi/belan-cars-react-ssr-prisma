@@ -30,8 +30,8 @@ const DetailSwiper: React.FC<DetailSwiperProps> = ({ carDetailData }) => {
     }
   }, []);
   return (
-    <DetailSwiperSC>
-      <>
+    <DetailSwiperSC className="swiper-wrapper">
+      <div className="swiper-container">
         <Swiper
           onSwiper={swiper => {
             if (swiper1Ref.current !== null) {
@@ -84,7 +84,7 @@ const DetailSwiper: React.FC<DetailSwiperProps> = ({ carDetailData }) => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </>
+      </div>
     </DetailSwiperSC>
   );
 };

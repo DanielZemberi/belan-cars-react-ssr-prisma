@@ -5,11 +5,11 @@ const defaultTheme = {
   colors: {
     text: {
       primary: '#000000',
-      secondary: '#FFFFFF'
+      secondary: '#F15B29'
     },
     bg: {
       primary: '#FFFFFF',
-      secondary: '#000000'
+      secondary: '#F15B29'
     }
   },
   breakPoints: breakPoints,
