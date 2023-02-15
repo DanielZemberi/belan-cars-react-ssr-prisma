@@ -1,7 +1,12 @@
 import Head from "next/head";
 import { GetServerSideProps } from "next";
+import axios from "axios";
 
 export default function Home() {
+  const call = async () => {
+    const response = await axios.post("/api/cron");
+    console.log("response", response);
+  };
   return (
     <>
       <Head>
@@ -10,13 +15,14 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <p>asdasd</p>
+      <button onClick={call} style={{ width: "300px", height: "200px" }}>
+        call
+      </button>
     </>
   );
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  console.log("ss");
   return {
     props: {
       a: "a",

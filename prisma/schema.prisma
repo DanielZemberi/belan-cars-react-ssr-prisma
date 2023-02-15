@@ -18,3 +18,11 @@ model users{
   first_name String?
   last_name String?
 }
+model car {
+  id Int @id @default(autoincrement())
+  title String
+  price String
+  previewImg String
+  detailUrl String @unique
+  description String
+}

@@ -12,8 +12,8 @@ services:
     stdin_open: true
 
   # CRON
-  cron:
-    build:
-      context: ./containers/cron/
-      dockerfile: ./Dockerfile
-    stdin_open: true
+  # cron:
+  #   build:
+  #     context: ./containers/cron/
+  #     dockerfile: ./Dockerfile
+  #   stdin_open: true
