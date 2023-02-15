@@ -3,6 +3,7 @@ import { GetServerSideProps, NextPage } from 'next';
 import React from 'react';
 import axios from 'axios';
 import { IGetCarDetailResponse } from '@/dto/car';
+import DetailPage from '@/components/pages/detail-page';
 
 interface DetailProps {
   carDetailData: IGetCarDetailResponse;
@@ -17,6 +18,7 @@ const Detail: NextPage<DetailProps> = ({ carDetailData }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <DetailPage carDetailData={carDetailData} />
     </>
   );
 };
