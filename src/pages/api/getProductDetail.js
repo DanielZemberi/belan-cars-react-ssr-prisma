@@ -10,13 +10,13 @@ const getOptions = async () => {
   let options;
   if (process.env.NODE_ENV === "production") {
     options = {
-      args: chrome.args,
+      args: [...chrome.args, ["--no-sandbox"]],
       executablePath: await chrome.executablePath,
       headless: chrome.headless,
     };
   } else {
     options = {
-      args: [],
+      args: ["--no-sandbox"],
       executablePath: exePath,
       headless: true,
     };
@@ -34,14 +34,8 @@ const getProductDetail = async (req, res) => {
 
   const { url } = body;
 
-  console.log("url", url);
-
-  const titleSelector = ".inzeraty .inzeratynadpis .nadpis";
-  const priceSelector = ".inzeraty .inzeratycena b";
-  const imgSelector = ".inzeraty .inzeratynadpis a img";
-  const descriptionSelector = ".inzeraty .inzeratynadpis .popis";
-  const detailUrlSelector = ".inzeraty .inzeratynadpis .nadpis a";
-  const properties = req.body.properties;
+  const imagesSelector = ".fliobal .flinavigace .obrazekflithumb";
+  const descriptionSelector = ".maincontent .popisdetail";
 
   try {
     const options = await getOptions();
@@ -49,6 +43,7 @@ const getProductDetail = async (req, res) => {
     const page = await browser.newPage();
 
     await page.setRequestInterception(true);
+
     page.on("request", (request) => {
       if (request.resourceType() === "document") {
         request.continue();
@@ -57,34 +52,27 @@ const getProductDetail = async (req, res) => {
       }
     });
 
-    await page
-      .goto(process.env.SCRAPE_URL, { timeout: 0 })
-      .then(async (response) => {});
+    await page.goto(url, { timeout: 0 }).then(async (response) => {});
     const html = await page.evaluate(() => {
       return document.querySelector("body").innerHTML;
     });
     const $ = cheerio.load(html);
 
-    const result = [];
+    const result = {
+      images: [],
+      description: [],
+    };
 
-    for (let i = 0; i < $(titleSelector).length; i++) {
-      result.push({});
-    }
+    $(imagesSelector).each((i, elem) => {
+      result.images.push($(elem).attr("src"));
+    });
 
-    $(titleSelector).each((i, elem) => {
-      result[i].title = $(elem).text();
-    });
-    $(priceSelector).each((i, elem) => {
-      result[i].price = $(elem).text();
-    });
-    $(imgSelector).each((i, elem) => {
-      result[i].previewImg = $(elem).attr("src");
-    });
-    $(detailUrlSelector).each((i, elem) => {
-      result[i].detailUrl = $(elem).attr("href");
-    });
     $(descriptionSelector).each((i, elem) => {
-      result[i].description = $(elem).text();
+      const element = [...$(elem).contents()]
+        .filter((e) => e.type === "text" && $(e).text().trim())
+        .map((e) => $(e).text().trim());
+
+      result.description = element;
     });
 
     await browser.close();

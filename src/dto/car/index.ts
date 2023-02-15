@@ -6,3 +6,8 @@ export interface ICar {
   detailUrl: string;
   description: string;
 }
+
+export interface ICarDetail {
+  images: string[];
+  description: string[];
+}
