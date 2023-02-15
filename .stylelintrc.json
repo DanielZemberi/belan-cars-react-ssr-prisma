@@ -1,0 +1,25 @@
+{
+  "processors": ["stylelint-processor-styled-components"],
+  "extends": [
+    "stylelint-config-prettier",
+    "stylelint-config-standard-scss",
+    "stylelint-config-styled-components"
+  ],
+  "customSyntax": "@stylelint/postcss-css-in-js",
+  "plugins": ["stylelint-order"],
+  "rules": {
+    "order/order": ["custom-properties", "declarations"],
+    "order/properties-order": ["width", "height"],
+    "at-rule-no-unknown": null,
+    "no-descending-specificity": null,
+    "no-duplicate-selectors": null,
+    "media-feature-name-no-unknown": null,
+    "selector-type-case": ["lower", { "ignoreTypes": ["/^\\$\\w+/"] }],
+    "selector-type-no-unknown": [
+      true,
+      { "ignoreTypes": ["/-styled-mixin/", "/^\\$\\w+/"] }
+    ],
+    "value-keyword-case": ["lower", { "ignoreKeywords": ["dummyValue"] }],
+    "declaration-colon-newline-after": null
+  }
+}

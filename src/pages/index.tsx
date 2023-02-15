@@ -1,27 +1,14 @@
-import Head from "next/head";
-import { GetServerSideProps, NextPage } from "next";
-import axios from "axios";
-import { prisma } from "../services/internal";
-import { car } from "@prisma/client";
-import React from "react";
+import Head from 'next/head';
+import { GetServerSideProps, NextPage } from 'next';
+import { prisma } from '../services/internal';
+import React from 'react';
+import { ICar } from '@/dto/car';
+
 interface HomeProps {
-  cars: car[];
+  cars: ICar[];
 }
 
 const Home: NextPage<HomeProps> = ({ cars }) => {
-  const [data, setData] = React.useState();
-  const getDetail = async () => {
-    const detail = await axios.post("/api/getProductDetail", {
-      url: "https://auto.bazos.sk/inzerat/147069646/volkswagen-touareg-30-v6-tdi-tiptronic-model-2006-top.php",
-    });
-    return detail;
-  };
-
-  React.useEffect(() => {
-    getDetail();
-  }, []);
-
-  console.log("data", data);
   return (
     <>
       <Head>
@@ -30,15 +17,7 @@ const Home: NextPage<HomeProps> = ({ cars }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      {cars.map((car) => (
-        <div key={car.id}>{car.id}</div>
-      ))}
-      <div>
-        {/* {data?.map((info) => (
-          <p key="1">{info}</p>
-        ))} */}
-      </div>
+      <p>asdasd</p>
     </>
   );
 };
@@ -48,8 +27,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   return {
     props: {
-      cars,
-    },
+      cars
+    }
   };
 };
 
