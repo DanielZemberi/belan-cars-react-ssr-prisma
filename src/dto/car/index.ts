@@ -11,3 +11,10 @@ export interface ICarDetail {
   images: string[];
   description: string[];
 }
+
+export interface IGetCarDetailResponse {
+  result: {
+    images: string[];
+    description: string[];
+  };
+}
