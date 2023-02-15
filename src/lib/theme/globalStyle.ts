@@ -5,6 +5,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
+    font-family: 'Jost', sans-serif;
     color: ${({ theme }) => theme.colors.text.primary};
     -webkit-tap-highlight-color: transparent;
     scroll-behavior: smooth;
