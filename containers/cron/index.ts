@@ -5,9 +5,9 @@ console.log("Starting cron container");
 
 const hitNextApp = async () => {
   console.log("sending request");
-  // const response = await axios.post("http://app:3000/api/user", {
-  //   ping: "ping",
-  // });
+  const response = await axios.post("http://app:3000/api/cron", {
+    ping: "ping",
+  });
 };
 
 cron.schedule("* * * * *", hitNextApp);
