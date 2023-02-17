@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Jost', sans-serif;
     color: ${({ theme }) => theme.colors.text.primary};
     -webkit-tap-highlight-color: transparent;
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
 
     &.disable-scroll {
       overflow: hidden;
@@ -20,6 +20,15 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+  }
+
+  body {
+    background: url('/assets/belancars-frdmstng.png'); 
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: right;
+
+    
   }
 
   #__next,
@@ -40,6 +49,10 @@ const GlobalStyle = createGlobalStyle`
   a {
     margin: 0;
     padding: 0;
+  }
+
+  img{
+    max-width: 100%;
   }
 
   a {

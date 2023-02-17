@@ -4,7 +4,11 @@ export const NavigationSC = styled.div`
   background: ${({ theme }) => theme.colors.bg.overlay};
   display: flex;
   justify-content: center;
-  padding: 8px 0;
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: ${({ theme }) => theme.zIndexes.Menu};
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 
   .nav-wrapper {
     max-width: 1600px;
@@ -13,6 +17,10 @@ export const NavigationSC = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0 40px;
+  }
+
+  .logo-wrapper {
+    font-size: 0;
   }
 
   nav {
@@ -25,6 +33,9 @@ export const NavigationSC = styled.div`
       z-index: 0;
       padding: 0 4px;
       transition: color 0.3s ease-in-out;
+      font-weight: bold;
+      text-transform: uppercase;
+      user-select: none;
 
       &:hover {
         color: ${({ theme }) => theme.colors.text.secondary};
