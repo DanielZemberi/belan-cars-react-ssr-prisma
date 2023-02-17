@@ -12,6 +12,9 @@ export const CarsSwiperSC = styled.div`
     padding-bottom: 20px;
   }
 
+  a {
+    cursor: pointer;
+  }
   .swiper {
     width: 100%;
     height: 100%;

@@ -3,8 +3,8 @@ import { GetServerSideProps, NextPage } from 'next';
 import { prisma } from '../services/internal';
 import React from 'react';
 import { ICar } from '@/dto/car';
-import Homepage from '@/components/pages/homepage';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Homepage from '@/components/pages/homepage-page';
 
 interface HomeProps {
   cars: ICar[];

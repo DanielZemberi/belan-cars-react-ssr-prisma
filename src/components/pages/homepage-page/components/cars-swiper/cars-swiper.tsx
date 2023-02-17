@@ -11,6 +11,7 @@ import 'swiper/css/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import OverlayWrapper from '@/components/ui/overlay-wrapper';
+import formatDetailLink from '@/helpers/formatDetailLink';
 
 interface CarsSwiperProps {
   cars: ICar[];
@@ -36,21 +37,28 @@ const CarsSwiper: React.FC<CarsSwiperProps> = ({ cars }) => {
           className="mySwiper"
         >
           {cars.map(car => (
-            <Link key={car.id} href={car.detailUrl}>
-              <SwiperSlide key={car.id}>
-                <div className="img-wrapper">
-                  <Image
-                    src={car.previewImg}
-                    alt="car"
-                    width={200}
-                    height={200}
-                  />
-                </div>
-                <div className="title-wrapper">
-                  <p>{car.title}</p>
-                </div>
-              </SwiperSlide>
-            </Link>
+            <SwiperSlide key={car.id}>
+              <Link
+                href={{
+                  pathname: '/detail',
+                  query: { car: formatDetailLink(car.detailUrl) }
+                }}
+              >
+                <>
+                  <div className="img-wrapper">
+                    <Image
+                      src={car.previewImg}
+                      alt="car"
+                      width={200}
+                      height={200}
+                    />
+                  </div>
+                  <div className="title-wrapper">
+                    <p>{car.title}</p>
+                  </div>
+                </>
+              </Link>
+            </SwiperSlide>
           ))}
         </Swiper>
         <Image
