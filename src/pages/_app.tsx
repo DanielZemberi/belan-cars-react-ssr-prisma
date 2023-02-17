@@ -6,6 +6,7 @@ import defaultTheme from '@/lib/theme/defaultTheme';
 import GlobalStyle from '@/lib/theme/globalStyle';
 import { appWithTranslation } from 'next-i18next';
 import NextI18nextConfig from '../../next-i18next.config.js';
+import BaseLayout from '@/components/common/base-layout/base-layout';
 
 function App({ Component, pageProps }: AppProps) {
   const [queryClient] = React.useState(() => new QueryClient());
@@ -13,7 +14,9 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={defaultTheme}>
-        <Component {...pageProps} />
+        <BaseLayout>
+          <Component {...pageProps} />
+        </BaseLayout>
         <GlobalStyle />
       </ThemeProvider>
     </QueryClientProvider>

@@ -4,6 +4,7 @@ import { prisma } from '../services/internal';
 import React from 'react';
 import { ICar } from '@/dto/car';
 import Homepage from '@/components/pages/homepage';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 interface HomeProps {
   cars: ICar[];
@@ -23,11 +24,12 @@ const Home: NextPage<HomeProps> = ({ cars }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   const cars = await prisma.car.findMany();
 
   return {
     props: {
+      ...(await serverSideTranslations(locale || 'en', ['common', 'homepage'])),
       cars: cars ?? []
     }
   };

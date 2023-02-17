@@ -8,11 +8,7 @@ interface HomepageProps {
 }
 
 const Homepage: React.FC<HomepageProps> = ({ cars }) => {
-  return (
-    <HomepageSC>
-      <CarsSwiper cars={cars} />
-    </HomepageSC>
-  );
+  return <HomepageSC>{/* <CarsSwiper cars={cars} /> */}</HomepageSC>;
 };
 
 export default Homepage;
