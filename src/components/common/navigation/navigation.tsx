@@ -10,12 +10,14 @@ const Navigation: React.FC = () => {
     <NavigationSC>
       <div className="nav-wrapper">
         <div className="logo-wrapper">
-          <Image
-            src="/assets/belancars-logo.png"
-            width={350}
-            height={80}
-            alt="belan cars"
-          />
+          <Link href="/">
+            <Image
+              src="/assets/belancars-logo.png"
+              width={350}
+              height={80}
+              alt="belan cars"
+            />
+          </Link>
         </div>
 
         <nav>
