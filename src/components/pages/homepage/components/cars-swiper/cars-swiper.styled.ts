@@ -1,6 +1,17 @@
 import styled from 'styled-components';
 
 export const CarsSwiperSC = styled.div`
+  text-align: center;
+  position: relative;
+
+  .title {
+    padding-bottom: 40px;
+  }
+
+  .subtitle {
+    padding-bottom: 20px;
+  }
+
   .swiper {
     width: 100%;
     height: 100%;
@@ -15,6 +26,15 @@ export const CarsSwiperSC = styled.div`
     justify-content: flex-start;
     align-items: center;
     height: auto;
+  }
+
+  .swiper-pagination-bullet {
+    background: ${({ theme }) => theme.colors.bg.secondary};
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: ${({ theme }) => theme.colors.bg.secondary};
   }
 
   .swiper-slide img {

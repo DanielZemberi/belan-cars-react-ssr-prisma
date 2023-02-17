@@ -4,12 +4,15 @@ import zIndexes from './zIndexes';
 const defaultTheme = {
   colors: {
     text: {
-      primary: '#000000',
-      secondary: '#FFFFFF'
+      primary: '#FFFFFF',
+      secondary: 'rgba(255,255,255,0.75)',
+      tertiary: '#F15B29'
     },
     bg: {
       primary: '#FFFFFF',
-      secondary: '#000000'
+      secondary: '#F15B29',
+      overlay: '#3A3A3C',
+      darkOverlay: 'rgba(0,0,0,0.65)'
     }
   },
   breakPoints: breakPoints,
