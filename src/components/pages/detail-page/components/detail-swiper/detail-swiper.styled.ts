@@ -26,7 +26,7 @@ export const DetailSwiperSC = styled.div`
 
   .main-swiper {
     width: 100%;
-    height: 500px;
+    height: 300px;
   }
   .small-swiper {
     height: auto;

@@ -21,18 +21,18 @@ const Navigation: React.FC = () => {
         </div>
 
         <nav>
-          <Link href="/">{t('nav.home')}</Link>
+          <Link href="/">Domov</Link>
           <Link scroll={false} href="#ponuka">
-            {t('nav.car_sale')}
+            Predaj áut
           </Link>
           <Link scroll={false} href="#pneuservis">
-            {t('nav.pneuservis')}
+            Pneuservis
           </Link>
           <Link scroll={false} href="#autoservis">
-            {t('nav.autoservis')}
+            Autoservis
           </Link>
           <Link scroll={false} href="#kontakt">
-            {t('nav.contact')}
+            Kontakt
           </Link>
         </nav>
       </div>
