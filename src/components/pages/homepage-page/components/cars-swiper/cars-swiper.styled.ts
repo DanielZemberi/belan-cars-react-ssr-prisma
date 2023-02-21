@@ -14,6 +14,7 @@ export const CarsSwiperSC = styled.div`
 
   a {
     cursor: pointer;
+    height: 100%;
   }
   .swiper {
     width: 100%;
@@ -29,6 +30,8 @@ export const CarsSwiperSC = styled.div`
     justify-content: flex-start;
     align-items: center;
     height: auto;
+    background: ${({ theme }) => theme.colors.bg.darkOverlay};
+    padding: 5px;
   }
 
   .swiper-pagination-bullet {
@@ -43,11 +46,13 @@ export const CarsSwiperSC = styled.div`
   .swiper-slide img {
     display: block;
     width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 
   .img-wrapper {
     width: 100%;
+    height: 200px;
   }
 
   .title-wrapper {

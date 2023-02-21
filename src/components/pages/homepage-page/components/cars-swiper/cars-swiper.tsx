@@ -24,7 +24,7 @@ const CarsSwiper: React.FC<CarsSwiperProps> = ({ cars }) => {
         <h2 className="title">AKTUÁLNA PONUKA VOZIDIEL</h2>
         <Swiper
           slidesPerView={5}
-          spaceBetween={30}
+          spaceBetween={10}
           navigation={true}
           autoplay={{
             delay: 3000,

@@ -1,3 +1,4 @@
+import ContentWrapper from '@/components/ui/content-wrapper';
 import { IGetCarDetailResponse } from '@/dto/car';
 import React from 'react';
 import DetailSwiper from './components/detail-swiper';
@@ -9,12 +10,13 @@ interface DetailPageProps {
 }
 
 const DetailPage: React.FC<DetailPageProps> = ({ carDetailData }) => {
-  console.log('car', carDetailData);
   return (
-    <DetailPageSC>
-      <DetailSwiper carDetailData={carDetailData} />
-      <InfoBox info={carDetailData.result} />
-    </DetailPageSC>
+    <ContentWrapper>
+      <DetailPageSC>
+        <DetailSwiper carDetailData={carDetailData} />
+        <InfoBox info={carDetailData.result} />
+      </DetailPageSC>
+    </ContentWrapper>
   );
 };
 

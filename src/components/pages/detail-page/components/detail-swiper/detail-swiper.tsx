@@ -7,6 +7,7 @@ import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 import SwiperClass from 'swiper/types/swiper-class';
+import 'swiper/css/pagination';
 
 import SwiperCore, { FreeMode, Navigation, Thumbs, Controller } from 'swiper';
 import { IGetCarDetailResponse } from '@/dto/car';
@@ -44,6 +45,7 @@ const DetailSwiper: React.FC<DetailSwiperProps> = ({ carDetailData }) => {
           slidesPerView={1}
           navigation={true}
           className="main-swiper"
+          autoHeight
           thumbs={{
             swiper:
               thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null
@@ -54,8 +56,8 @@ const DetailSwiper: React.FC<DetailSwiperProps> = ({ carDetailData }) => {
             <SwiperSlide key={car} className="main-slide">
               <Image
                 src={car}
-                width={300}
-                height={300}
+                width={600}
+                height={600}
                 alt="for-sale"
                 unoptimized
               />

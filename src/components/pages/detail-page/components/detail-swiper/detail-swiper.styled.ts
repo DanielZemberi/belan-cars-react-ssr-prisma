@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const DetailSwiperSC = styled.div`
-  max-width: 100%;
-
   .swiper-container {
     max-width: 100%;
   }
@@ -24,9 +22,14 @@ export const DetailSwiperSC = styled.div`
     object-fit: contain;
   }
 
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: ${({ theme }) => theme.colors.bg.secondary};
+  }
+
   .main-swiper {
     width: 100%;
-    height: 300px;
+    height: auto;
   }
   .small-swiper {
     height: auto;
@@ -35,6 +38,16 @@ export const DetailSwiperSC = styled.div`
   .swiper-slide {
     background-size: cover;
     background-position: center;
+  }
+
+  .main-slide {
+    background: red;
+    height: fit-content;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
   }
 
   .small-slide {
