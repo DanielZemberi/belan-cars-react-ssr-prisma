@@ -61,4 +61,30 @@ export const NavigationSC = styled.div`
       }
     }
   }
+
+  .mobile-nav-wrapper {
+    display: none;
+  }
+  @media (max-width: ${({ theme }) => theme.breakPoints.lg}px) {
+    height: 80px;
+    .nav-wrapper {
+      padding: 0 20px;
+    }
+
+    .close-icon {
+      margin-right: 15px;
+    }
+
+    .logo-wrapper {
+      width: 150px;
+    }
+
+    .mobile-nav {
+      display: none;
+    }
+
+    .mobile-nav-wrapper {
+      display: flex;
+    }
+  }
 `;

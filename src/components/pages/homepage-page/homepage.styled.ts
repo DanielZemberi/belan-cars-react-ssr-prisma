@@ -6,4 +6,9 @@ export const HomepageSC = styled.div`
     flex-direction: column;
     gap: 120px;
   }
+  @media (max-width: ${({ theme }) => theme.breakPoints.lg}px) {
+    .sections-wrapper {
+      gap: 60px;
+    }
+  }
 `;

@@ -34,6 +34,23 @@ const CarsSwiper: React.FC<CarsSwiperProps> = ({ cars }) => {
             dynamicBullets: true
           }}
           modules={[Autoplay, Pagination, Navigation]}
+          breakpoints={{
+            200: {
+              slidesPerView: 1
+            },
+            576: {
+              slidesPerView: 2
+            },
+            768: {
+              slidesPerView: 3
+            },
+            991: {
+              slidesPerView: 4
+            },
+            1200: {
+              slidesPerView: 5
+            }
+          }}
           className="mySwiper"
         >
           {cars.map(car => (
@@ -68,7 +85,7 @@ const CarsSwiper: React.FC<CarsSwiperProps> = ({ cars }) => {
           alt="deal"
         />
         <h2 className="subtitle">Predaj áut</h2>
-        <p>
+        <p className="claim">
           <b>BELAN CARS & SERVIS</b> - to je ten správny partner pri kúpe
           jazdených áut či dovozu áut na objednávku. Vozidlá pred kúpou a
           predajom preverujeme v medzinárodných databázach a kontrolujeme

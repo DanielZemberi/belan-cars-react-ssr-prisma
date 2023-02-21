@@ -7,4 +7,10 @@ export const OverlayWrapperSC = styled.div`
   .title {
     text-align: center;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.lg}px) {
+    .claim {
+      text-align: left;
+    }
+  }
 `;

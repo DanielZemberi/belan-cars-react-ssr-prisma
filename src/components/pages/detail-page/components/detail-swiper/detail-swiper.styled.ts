@@ -61,4 +61,10 @@ export const DetailSwiperSC = styled.div`
       object-fit: cover;
     }
   }
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.lg}px) {
+    .small-slide {
+      max-width: 100px;
+    }
+  }
 `;

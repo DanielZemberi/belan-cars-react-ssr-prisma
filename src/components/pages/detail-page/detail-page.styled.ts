@@ -14,4 +14,13 @@ export const DetailPageSC = styled.div`
   .info-box-wrapper {
     width: 60%;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.lg}px) {
+    flex-direction: column;
+
+    .swiper-wrapper,
+    .info-box-wrapper {
+      width: 100%;
+    }
+  }
 `;

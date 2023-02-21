@@ -7,14 +7,15 @@ import { DetailPageSC } from './detail-page.styled';
 
 interface DetailPageProps {
   carDetailData: IGetCarDetailResponse;
+  bazosUrl: string;
 }
 
-const DetailPage: React.FC<DetailPageProps> = ({ carDetailData }) => {
+const DetailPage: React.FC<DetailPageProps> = ({ carDetailData, bazosUrl }) => {
   return (
     <ContentWrapper>
       <DetailPageSC>
         <DetailSwiper carDetailData={carDetailData} />
-        <InfoBox info={carDetailData.result} />
+        <InfoBox info={carDetailData.result} bazosUrl={bazosUrl} />
       </DetailPageSC>
     </ContentWrapper>
   );

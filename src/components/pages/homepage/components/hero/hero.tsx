@@ -16,7 +16,11 @@ const Hero: React.FC = () => {
             height={145}
           />
         </div>
-        <h1>PNEUSERVIS • AUTOSERVIS • PREDAJ ÁUT</h1>
+        <h1 className="desktop">PNEUSERVIS • AUTOSERVIS • PREDAJ ÁUT</h1>
+        <h1 className="mobile">
+          PNEUSERVIS <br /> AUTOSERVIS <br /> PREDAJ ÁUT
+        </h1>
+
         <div className="divider" />
       </HeroSC>
     </ContentWrapper>

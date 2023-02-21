@@ -24,4 +24,19 @@ export const HeroSC = styled.div`
     padding-top: 40px;
     justify-content: center;
   }
+
+  .mobile {
+    display: none;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.lg}px) {
+    .desktop {
+      display: none;
+    }
+    .mobile {
+      display: block;
+      align-self: flex-start;
+      padding-top: 20px;
+    }
+  }
 `;

@@ -41,4 +41,11 @@ export const ContactSectionSC = styled.div`
   .copyright {
     margin-top: 20px;
   }
+  @media (max-width: ${({ theme }) => theme.breakPoints.lg}px) {
+    .address-block {
+      h3 {
+        line-height: 1.2;
+      }
+    }
+  }
 `;

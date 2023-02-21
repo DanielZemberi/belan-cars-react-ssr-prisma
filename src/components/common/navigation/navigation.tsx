@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import { useTranslation } from 'next-i18next';
 import { NavigationSC } from './navigation.styled';
+import MobileNav from './mobile-nav';
 
 const Navigation: React.FC = () => {
   const { t } = useTranslation('common');
@@ -20,7 +21,7 @@ const Navigation: React.FC = () => {
           </Link>
         </div>
 
-        <nav>
+        <nav className="mobile-nav">
           <Link href="/">Domov</Link>
           <Link scroll={false} href="#ponuka">
             Predaj áut
@@ -35,6 +36,7 @@ const Navigation: React.FC = () => {
             Kontakt
           </Link>
         </nav>
+        <MobileNav />
       </div>
     </NavigationSC>
   );

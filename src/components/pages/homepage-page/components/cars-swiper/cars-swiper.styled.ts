@@ -59,4 +59,15 @@ export const CarsSwiperSC = styled.div`
     text-align: left;
     margin-top: 10px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.sm}px) {
+    .img-wrapper {
+      height: auto;
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+      width: 10px;
+      height: 10px;
+    }
+  }
 `;
