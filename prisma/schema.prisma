@@ -1,0 +1,27 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl","debian-openssl-1.1.x","debian-openssl-3.0.x","linux-musl-openssl-3.0.x"]
+
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model users{
+  id Int @id @default(autoincrement())
+  first_name String?
+  last_name String?
+}
+model car {
+  id Int @id @default(autoincrement())
+  title String
+  price String
+  previewImg String
+  detailUrl String @unique
+  description String
+}

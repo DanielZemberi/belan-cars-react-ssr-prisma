@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+  # APP
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - '3000:3000'
+    stdin_open: true
+
+  # CRON
+  cron:
+    build:
+      context: ./containers/cron/
+      dockerfile: ./Dockerfile
+    stdin_open: true
