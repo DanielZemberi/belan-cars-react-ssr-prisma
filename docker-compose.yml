@@ -1,4 +1,4 @@
-version: "3.7"
+version: '3.7'
 services:
   # APP
   app:
@@ -8,10 +8,10 @@ services:
     volumes:
       - .:/usr/src/app
     ports:
-      - "3000:3000"
+      - '3000:3000'
     stdin_open: true
 
-  CRON
+  # CRON
   cron:
     build:
       context: ./containers/cron/
