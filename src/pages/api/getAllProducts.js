@@ -1,6 +1,7 @@
 import { load } from 'cheerio';
 import { launch } from 'puppeteer';
 import getChromeOptions from '../../lib/helpers/getChromeOptions';
+
 const getAllProducts = async (req, res) => {
   const titleSelector = '.inzeraty .inzeratynadpis .nadpis';
   const priceSelector = '.inzeraty .inzeratycena b';
@@ -59,7 +60,7 @@ const getAllProducts = async (req, res) => {
     await browser.close();
     res.status(200).json({ statusCode: 200, result });
   } catch (error) {
-    return res.status(500).send(error.message);
+    return res.status(500).send(error);
   }
 };
 
