@@ -19,7 +19,7 @@ const getProductDetail = async (req, res) => {
   const titleSelector = '.maincontent .listainzerat .nadpisdetail';
   try {
     const options = await getChromeOptions();
-    const browser = await puppeteer.launch(options);
+    const browser = await launch(options);
     const page = await browser.newPage();
 
     await page.setRequestInterception(true);
