@@ -3,5 +3,11 @@
     "pages/**/*": {
       "excludeFiles": "public/**"
     }
-  }
+  },
+  "crons": [
+    {
+      "path": "/api/cron",
+      "schedule": "* * * * *"
+    }
+  ]
 }
