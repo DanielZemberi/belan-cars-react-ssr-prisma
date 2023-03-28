@@ -8,7 +8,7 @@ const getAllProducts = async (req, res) => {
   const imgSelector = '.inzeraty .inzeratynadpis a img';
   const descriptionSelector = '.inzeraty .inzeratynadpis .popis';
   const detailUrlSelector = '.inzeraty .inzeratynadpis .nadpis a';
-  console.log('1');
+
   try {
     const options = await getChromeOptions();
     const browser = await launch(options);
