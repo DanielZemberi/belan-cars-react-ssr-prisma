@@ -6,7 +6,10 @@ const getChromeOptions = async () => {
   // let options;
   // if (process.env.NODE_ENV === 'production') {
   return {
-    args: [...chromium.args, ['--hide-scrollbars', '--disable-web-security']],
+    args: [
+      ...chromium.args,
+      ['--hide-scrollbars', '--disable-web-security', '--no-sandbox']
+    ],
     executablePath: await chromium.executablePath,
     headless: chromium.headless,
     ignoreHTTPSErrors: true

@@ -2,11 +2,11 @@ import axios from 'axios';
 
 import getChromeOptions from '../../lib/helpers/getChromeOptions';
 import { load } from 'cheerio';
-import { launch } from 'puppeteer';
+import puppeteer from 'puppeteer';
 
 const handler = async (req, res) => {
   const options = await getChromeOptions();
-  const browser = await launch(options);
+  const browser = await puppeteer.launch(options);
 
   console.log('browser', browser);
 
