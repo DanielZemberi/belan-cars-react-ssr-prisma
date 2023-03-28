@@ -10,8 +10,9 @@ import {
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { data } = await axios.get<{ result: ICar[] }>(
-      `https://belan-cars-react-ssr-prisma.vercel.app/api/getAllProducts`
+      `https://localhost:3001/api/getAllProducts`
     );
+    console.log('a');
     const products = data.result;
     const savedProducts = await prisma.car.findMany();
     const productsToAdd = findMissingProduct(savedProducts, products);
@@ -54,9 +55,3 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 };
 
 export default handler;
-
-export const config = {
-  api: {
-    externalResolver: true
-  }
-};
