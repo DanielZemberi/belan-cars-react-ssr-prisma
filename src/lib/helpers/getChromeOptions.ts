@@ -1,4 +1,4 @@
-import chrome from 'chrome-aws-lambda';
+import chromium from '@sparticuz/chromium-min';
 
 const exePath = '/usr/bin/google-chrome-stable';
 
@@ -6,9 +6,9 @@ const getChromeOptions = async () => {
   let options;
   if (process.env.NODE_ENV === 'production') {
     options = {
-      args: [...chrome.args, ['--no-sandbox']],
-      executablePath: await chrome.executablePath,
-      headless: chrome.headless
+      args: [...chromium.args, ['--no-sandbox']],
+      executablePath: await chromium.executablePath,
+      headless: chromium.headless
     };
   } else {
     options = {
