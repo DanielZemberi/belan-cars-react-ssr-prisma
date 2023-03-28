@@ -24,7 +24,7 @@ const getAllProducts = async (req, res) => {
     });
 
     await page
-      .goto(process.env.SCRAPE_URL, { timeout: 0 })
+      .goto(process.env.NEXT_PUBLIC_SCRAPE_URL, { timeout: 0 })
       .then(async response => {});
     const html = await page.evaluate(() => {
       return document.querySelector('body').innerHTML;
