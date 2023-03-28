@@ -10,7 +10,7 @@ import {
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { data } = await axios.get<{ result: ICar[] }>(
-      `https://localhost:3001/api/getAllProducts`
+      `https://belan-cars-react-ssr-prisma.vercel.app/api/getAllProducts`
     );
     console.log('a');
     const products = data.result;
