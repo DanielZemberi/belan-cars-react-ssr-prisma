@@ -34,7 +34,7 @@ const Detail: NextPage<DetailProps> = ({ carDetailData, bazosUrl }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  const localhostUrl = process.env.LOCALHOST_URL;
+  const localhostUrl = process.env.NEXT_PUBLIC_LOCALHOST_URL;
   const bazosUrl = 'https://auto.bazos.sk/inzerat/' + query.car;
 
   const res = await axios.post(`${localhostUrl}/api/getProductDetail`, {

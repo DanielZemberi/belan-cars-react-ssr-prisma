@@ -17,6 +17,8 @@ const getProductDetail = async (req, res) => {
   const imagesSelector = '.fliobal .flinavigace .obrazekflithumb';
   const descriptionSelector = '.maincontent .popisdetail';
   const titleSelector = '.maincontent .listainzerat .nadpisdetail';
+
+  console.log('IN@@@@@@@');
   try {
     const options = await getChromeOptions();
     const browser = await launch(options);
@@ -31,7 +33,7 @@ const getProductDetail = async (req, res) => {
         request.abort();
       }
     });
-
+    console.log('before', url);
     await page
       .goto('https://auto.bazos.sk/inzerat/' + url, { timeout: 0 })
       .then(async response => {});
@@ -39,7 +41,7 @@ const getProductDetail = async (req, res) => {
       return document.querySelector('body').innerHTML;
     });
     const $ = load(html);
-
+    console.log('after url');
     const result = {
       images: [],
       description: []
