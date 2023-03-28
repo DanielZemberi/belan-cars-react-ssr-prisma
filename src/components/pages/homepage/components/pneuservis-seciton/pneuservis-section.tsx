@@ -16,6 +16,7 @@ const PneuservisSection: React.FC = () => {
           alt="pneuservis"
         />
         <p className="claim">
+          ENV: {process.env.NEXT_PUBLIC_SCRAPE_URL}
           <b>BELAN CARS & SERVIS</b> – to je rýchly a spoľahlivý partner pre
           široký sortiment pneumatík rôznych značiek, individuálne aj flotilové
           prezúvanie a samozrejme uskladnenie sezónneho prezutia a to všetko už

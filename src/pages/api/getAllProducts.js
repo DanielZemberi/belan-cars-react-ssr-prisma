@@ -13,7 +13,6 @@ const getAllProducts = async (req, res) => {
     const options = await getChromeOptions();
     const browser = await launch(options);
     const page = await browser.newPage();
-
     await page.setRequestInterception(true);
     page.on('request', request => {
       if (request.resourceType() === 'document') {
@@ -29,6 +28,7 @@ const getAllProducts = async (req, res) => {
     const html = await page.evaluate(() => {
       return document.querySelector('body').innerHTML;
     });
+
     const $ = load(html);
 
     const result = [];

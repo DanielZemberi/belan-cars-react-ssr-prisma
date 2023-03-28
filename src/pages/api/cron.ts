@@ -1,18 +1,15 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { prisma } from "../../services/internal";
-import axios from "axios";
-import { ICar } from "@/dto/car";
+import { NextApiRequest, NextApiResponse } from 'next';
+import { prisma } from '../../services/internal';
+import axios from 'axios';
+import { ICar } from '@/dto/car';
 import {
   findMissingProduct,
-  hasRemovedProduct,
-} from "@/helpers/productHelpers";
+  hasRemovedProduct
+} from '@/helpers/productHelpers';
 
-const localhostUrl = process.env.LOCALHOST_URL;
+const localhostUrl = process.env.NEXT_PUBLIC_LOCALHOST_URL;
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method !== "POST") {
-    throw new Error("unknown request");
-  }
   try {
     const { data } = await axios.get<{ result: ICar[] }>(
       `${localhostUrl}/api/getAllProducts`
@@ -26,14 +23,14 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       for (const removedProduct of removedProducts) {
         await prisma.car.deleteMany({
           where: {
-            detailUrl: removedProduct.detailUrl,
-          },
+            detailUrl: removedProduct.detailUrl
+          }
         });
       }
     }
 
     if (productsToAdd.length === 0) {
-      res.status(200).json({ status: 200, data: "UP TO DATE" });
+      res.status(200).json({ status: 200, data: 'UP TO DATE' });
       return res.end();
     }
 
@@ -41,12 +38,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       for (const product of productsToAdd) {
         await prisma.car.create({
           data: {
-            description: product.description,
+            description: product.description.split(' + ')[0],
             detailUrl: product.detailUrl,
             previewImg: product.previewImg,
             price: product.price,
-            title: product.title,
-          },
+            title: product.title
+          }
         });
       }
     }
@@ -62,6 +59,6 @@ export default handler;
 
 export const config = {
   api: {
-    externalResolver: true,
-  },
+    externalResolver: true
+  }
 };

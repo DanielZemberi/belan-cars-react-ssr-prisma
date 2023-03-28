@@ -39,6 +39,8 @@ const Home: NextPage<HomeProps> = ({ cars }) => {
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   const cars = await prisma.car.findMany();
 
+  console.log('CARS', cars);
+
   return {
     props: {
       ...(await serverSideTranslations(locale || 'en', ['common', 'homepage'])),
