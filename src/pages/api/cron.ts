@@ -12,7 +12,7 @@ const localhostUrl = process.env.NEXT_PUBLIC_LOCALHOST_URL;
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { data } = await axios.get<{ result: ICar[] }>(
-      `${localhostUrl}/api/getAllProducts`
+      `https://belan-cars-react-ssr-prisma.vercel.app/api/getAllProducts`
     );
     const products = data.result;
     const savedProducts = await prisma.car.findMany();

@@ -6,6 +6,7 @@ import getChromeOptions from '../../lib/helpers/getChromeOptions';
 
 const getProductDetail = async (req, res) => {
   const { method, body } = req;
+  console.log('IN@@@@@@@');
 
   if (method !== 'POST' || !body) {
     res.status(400);
@@ -18,7 +19,6 @@ const getProductDetail = async (req, res) => {
   const descriptionSelector = '.maincontent .popisdetail';
   const titleSelector = '.maincontent .listainzerat .nadpisdetail';
 
-  console.log('IN@@@@@@@');
   try {
     const options = await getChromeOptions();
     const browser = await launch(options);
