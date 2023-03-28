@@ -1,28 +1,8 @@
-import cheerio from 'cheerio';
-import puppeteer from 'puppeteer';
-import chrome from 'chrome-aws-lambda';
+import { load } from 'cheerio';
+import { launch } from 'puppeteer';
+import getChromeOptions from '../../lib/helpers/getChromeOptions';
 
 // const exePath = "/usr/bin/google-chrome-stable" || "/usr/bin/google-chrome";
-
-const exePath = '/usr/bin/google-chrome-stable';
-
-const getOptions = async () => {
-  let options;
-  if (process.env.NODE_ENV === 'production') {
-    options = {
-      args: [...chrome.args, ['--no-sandbox']],
-      executablePath: await chrome.executablePath,
-      headless: chrome.headless
-    };
-  } else {
-    options = {
-      args: ['--no-sandbox'],
-      executablePath: exePath,
-      headless: true
-    };
-  }
-  return options;
-};
 
 const getProductDetail = async (req, res) => {
   const { method, body } = req;
@@ -38,7 +18,7 @@ const getProductDetail = async (req, res) => {
   const descriptionSelector = '.maincontent .popisdetail';
   const titleSelector = '.maincontent .listainzerat .nadpisdetail';
   try {
-    const options = await getOptions();
+    const options = await getChromeOptions();
     const browser = await puppeteer.launch(options);
     const page = await browser.newPage();
 
@@ -58,7 +38,7 @@ const getProductDetail = async (req, res) => {
     const html = await page.evaluate(() => {
       return document.querySelector('body').innerHTML;
     });
-    const $ = cheerio.load(html);
+    const $ = load(html);
 
     const result = {
       images: [],
