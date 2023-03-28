@@ -9,7 +9,9 @@ import {
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const { data } = await axios.get<{ result: ICar[] }>(`/api/getAllProducts`);
+    const { data } = await axios.get<{ result: ICar[] }>(
+      `https://belan-cars-react-ssr-prisma.vercel.app/api/getAllProducts`
+    );
     const products = data.result;
     const savedProducts = await prisma.car.findMany();
     const productsToAdd = findMissingProduct(savedProducts, products);

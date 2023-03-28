@@ -1,7 +1,6 @@
 import { load } from 'cheerio';
 import { launch } from 'puppeteer';
 import getChromeOptions from '../../lib/helpers/getChromeOptions';
-
 const getAllProducts = async (req, res) => {
   const titleSelector = '.inzeraty .inzeratynadpis .nadpis';
   const priceSelector = '.inzeraty .inzeratycena b';
